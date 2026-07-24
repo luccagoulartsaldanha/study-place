@@ -11,9 +11,8 @@ class KMeansClustering:
     def euclidiean_distance(data_point, centroids):
         return np.sqrt(np.sum((centroids - data_point)**2, axis=1))
 
-    def fit(self, X, max_iterations=200):
-        self.centroids = np.random.uniform(np.amin(X, axis=0), np.amax(X, axis=0), 
-                                                size=(self.k, X.shape[1]))
+    def fit(self, X, max_iterations=100000):
+        self.centroids = np.random.uniform(np.amin(X, axis=0), np.amax(X, axis=0), size=(self.k, X.shape[1]))
         
         for _ in range(max_iterations):
             y = []
@@ -39,7 +38,7 @@ class KMeansClustering:
                 else:
                     cluster_centers.append(np.mean(X[indicies], axis=0)[0])
 
-            if np.max(self.centroids - np.array(cluster_centers)) < 0.0001:
+            if np.max(self.centroids - np.array(cluster_centers)) < 0.0000001:
                 break
             else:
                 self.centroids = np.array(cluster_centers)
