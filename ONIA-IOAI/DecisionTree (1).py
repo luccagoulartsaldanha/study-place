@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
 from sklearn.model_selection import train_test_split
-print("funcionando")
 # Setup
 data = pd.read_csv("pokemon.csv")
 data = data.query("Type1.isin(('Grass', 'Electric'))")
