@@ -3,7 +3,4 @@ from sklearn.datasets import load_breast_cancer
 import matplotlib as plt
 import pandas as pd
 
-
-data = load_breast_cancer()
-x = pd.DataFrame(data)
-print(x)
+## I cant find a dataset for third one
